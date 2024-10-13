@@ -37,8 +37,8 @@ section {
 }
 
 h2 {
-    color: #4CAF50;
-    border-bottom: 2px solid #4CAF50;
+    color: #68c2e3;
+    border-bottom: 2px solid #68c2e3;
     padding-bottom: 5px;
 }
 
@@ -67,7 +67,7 @@ input[type="radio"] {
 
 /* 按鈕樣式 */
 button {
-    background-color: #4CAF50;
+    background-color: #68c2e3;
     color: white;
     padding: 12px 25px;
     border: none;
@@ -78,7 +78,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #68c2e3;
 }
 
 /* 隱藏元素 */
@@ -94,26 +94,6 @@ button:hover {
 #result-text {
     font-size: 1.2em;
     margin-bottom: 20px;
-}
-
-/* 頁腳樣式 */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 15px 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-footer a {
-    color: #4CAF50;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
 }
 
 /* 響應式設計 */
