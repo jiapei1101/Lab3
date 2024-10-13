@@ -14,6 +14,7 @@
 
 - **HTML5**：結構化網頁內容
 - **CSS3**：設計與佈局
+- **Google Fonts**：自訂字體
 - **GitHub Pages**：網站部署
 
 ## 安裝與使用
@@ -22,3 +23,4 @@
 
    ```bash
    git clone https://github.com/你的使用者名稱/你的使用者名稱.github.io.git
+
