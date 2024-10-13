@@ -1,9 +1,9 @@
+/* 全局樣式 */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
 }
 
 header {
@@ -13,29 +13,35 @@ header {
     text-align: center;
 }
 
-section {
+h1 {
+    margin: 0;
+}
+
+main {
     padding: 20px;
-    margin: 10px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-footer {
-    background-color: #333;
+section {
+    margin-bottom: 20px;
+}
+
+.question {
+    margin: 15px 0;
+}
+
+button {
+    background-color: #4CAF50;
     color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
 }
 
-a {
-    color: #4CAF50;
-    text-decoration: none;
+button:hover {
+    background-color: #45a049;
 }
 
-a:hover {
-    text-decoration: underline;
+label {
+    display: block;
+    margin: 5px 0;
 }
