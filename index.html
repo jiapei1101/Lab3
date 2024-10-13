@@ -3,31 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的個人頁面</title>
+    <title>人際關係心理測驗</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>哈囉，這裡什麼都沒有</h1>
-        <p>歡迎來到我的個人網站！</p>
+        <h1>人際關係心理測驗</h1>
+        <p>這個測驗幫助你了解自己在人際互動中的態度和行為模式。</p>
     </header>
-    
-    <section>
-        <h2>關於我</h2>
-        <p>一名為了學分折腰的人。</p>
-    </section>
-    
-    <section>
-        <h2>我的作品</h2>
-        <ul>
-            <li><a href="#">作品一</a></li>
-            <li><a href="#">作品二</a></li>
-            <li><a href="#">作品三</a></li>
-        </ul>
-    </section>
-    
-    <footer>
-        <p>聯絡我：<a href="mailto:notexist@fju.edu.tw">notexist@fju.edu.tw</a></p>
-    </footer>
+    <main>
+        <section>
+            <h2>人際關係測試問題</h2>
+            <form>
+                <div class="question">
+                    <p>1. 當你遇到與朋友或同事意見不合的情況時，你會怎麼做？</p>
+                    <label><input type="radio" name="q1"> 立刻表達不滿，爭取自己的意見</label><br>
+                    <label><input type="radio" name="q1"> 嘗試找一個折衷的解決方案</label><br>
+                    <label><input type="radio" name="q1"> 默默接受對方的意見，避免衝突</label><br>
+                    <label><input type="radio" name="q1"> 忽視分歧，轉移話題</label>
+                </div>
+                
+                <div class="question">
+                    <p>2. 你是否經常覺得自己很難對別人說「不」？</p>
+                    <label><input type="radio" name="q2"> 經常，幾乎每次都難以拒絕</label><br>
+                    <label><input type="radio" name="q2"> 有時會感到困難，但還是能說「不」</label><br>
+                    <label><input type="radio" name="q2"> 偶爾，依情況而定</label><br>
+                    <label><input type="radio" name="q2"> 幾乎不會，有需要時我會直接拒絕</label>
+                </div>
+                
+                <!-- 你可以繼續添加更多問題... -->
+                
+                <button type="submit">提交測驗</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>評分指導</h2>
+            <p>
+                - 若你經常選擇偏向「取悅他人」、「避免衝突」、「難以拒絕」等選項，這可能表示你在人際關係中容易感到壓力或不安，並且可能會犧牲自己的需求來維持和諧。<br>
+                - 如果你的選項較為平衡，這意味著你能有效地處理人際關係中的挑戰，同時也能表達自己的需求。<br>
+                - 若你選擇較多「積極表達」、「不在意他人看法」等選項，這表示你在人際互動中比較自信，能夠清楚地表達自己，並且不會輕易受到他人影響。
+            </p>
+        </section>
+    </main>
 </body>
 </html>
