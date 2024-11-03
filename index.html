@@ -125,9 +125,15 @@
             q.classList.toggle('active', i === index); 
         }); 
 
-        submitBtn.classList.toggle('hidden', index !== questions.length - 1);
-        updateProgressBar();
+        // 確保按鈕在顯示所有問題時始終可見
+    if (index === questions.length - 1) {
+        submitBtn.classList.remove('hidden'); // 顯示按鈕
+    } else {
+        submitBtn.classList.add('hidden'); // 隱藏按鈕
     }
+
+    updateProgressBar();
+}
 
     function updateProgressBar() {
         const progress = (answeredQuestions / questions.length) * 100; // 計算進度
