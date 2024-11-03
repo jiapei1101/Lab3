@@ -103,80 +103,50 @@
                 <label><input type="radio" name="q10" value="D"> 幾乎不會，我更重視自己的感受</label> 
             </div> 
             <!-- 進度條 -->
-            <div class="progress-bar">
-                <div class="progress"></div>
-            </div>
-            
-            <button type="submit" id="submit-btn" class="hidden">提交測驗</button> 
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+
+        <button type="submit" id="submit-btn" class="hidden">提交測驗</button> 
         </form> 
-    </main> 
-    <footer> 
-        <p>聯絡我：<a href="mailto:your.email@example.com">your.email@example.com</a></p> 
-    </footer> 
- 
-    <script> 
-        const questions = document.querySelectorAll('.question'); 
-        const submitBtn = document.getElementById('submit-btn'); 
-        const progressBar = document.querySelector('.progress-bar .progress');
-        let currentQuestion = 0; 
- 
-        function showQuestion(index) { 
-            questions.forEach((q, i) => { 
-                q.classList.remove('active'); 
-                if (i === index) { 
-                    q.classList.add('active'); 
+</main> 
+<footer> 
+    <p>聯絡我：<a href="mailto:your.email@example.com">your.email@example.com</a></p> 
+</footer> 
+
+<script> 
+    const questions = document.querySelectorAll('.question'); 
+    const submitBtn = document.getElementById('submit-btn'); 
+    const progressBar = document.querySelector('.progress-bar .progress');
+    let currentQuestion = 0; 
+
+    function showQuestion(index) { 
+        questions.forEach((q, i) => { 
+            q.classList.toggle('active', i === index); 
+        }); 
+
+        submitBtn.classList.toggle('hidden', index !== questions.length - 1);
+        updateProgressBar();
+    }
+
+    function updateProgressBar() {
+        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        progressBar.style.width = progress + '%';
+    }
+
+    showQuestion(currentQuestion); 
+        
+    questions.forEach((q, index) => { 
+        const inputs = q.querySelectorAll('input[type="radio"]'); 
+        inputs.forEach(input => { 
+            input.addEventListener('change', () => { 
+                if (index < questions.length - 1) { 
+                    currentQuestion++; 
+                    showQuestion(currentQuestion); 
                 } 
             }); 
-            // 隱藏提交按鈕，除非是最後一題 
-            if (index === questions.length - 1) { 
-                submitBtn.classList.remove('hidden'); 
-            } else { 
-                submitBtn.classList.add('hidden'); 
-            } 
-        } 
-
-        function updateProgressBar() {
-            const progress = ((currentQuestion + 1) / questions.length) * 100;
-            progressBar.style.width = progress + '%';
-        }
-
-        // 修改 showQuestion 函數，在顯示每個新題目時更新進度條
-        function showQuestion(index) {
-            questions.forEach((q, i) => {
-                q.classList.remove('active');
-                if (i === index) {
-                    q.classList.add('active');
-                }
-            });
-
-            if (index === questions.length - 1) {
-                submitBtn.classList.remove('hidden');
-            } else {
-                submitBtn.classList.add('hidden');
-            }
-
-            updateProgressBar(); // 更新進度條
-        }
-
-            
-        // 初始顯示第一題 
-        showQuestion(currentQuestion); 
-            
-        // 為每個問題的選項添加事件監聽器 
-        questions.forEach((q, index) => { 
-            const inputs = q.querySelectorAll('input[type="radio"]'); 
-            inputs.forEach(input => { 
-                input.addEventListener('change', () => { 
-                    if (index < questions.length - 1) { 
-                        currentQuestion++; 
-                        showQuestion(currentQuestion); 
-                    } else { 
-                        // 最後一題顯示提交按鈕 
-                        submitBtn.click(); 
-                    } 
-                }); 
-            }); 
         }); 
-    </script> 
+    });
+</script> 
 </body> 
 </html>
