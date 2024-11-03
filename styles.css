@@ -104,7 +104,6 @@ button:hover {
     background-color: #e0e0e0;
     border-radius: 8px 8px 0 0; /* 只讓上角圓角以更自然地接合 */
     height: 20px;
-    margin: 0; /* 移除進度條的外邊距，避免和視窗底部有距離 */
     z-index: 1000; /* 設置 z-index 確保進度條在其他元素之上 */
 }
 
@@ -112,7 +111,11 @@ button:hover {
     height: 100%;
     background-color: #4caf50; /* 進度顏色 */
     width: 0%; /* 初始進度為 0% */
-    border-radius: 8px 8px 0 0;
+    border-radius: 8px ;
+}
+/* 調整主內容，防止被進度條遮擋 */
+main {
+    padding-bottom: 40px; /* 給主內容底部增加空間以避免遮擋 */
 }
 
 /* 頁腳樣式 */
