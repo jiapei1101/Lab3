@@ -138,13 +138,15 @@
 
     showQuestion(currentQuestion); 
     questions.forEach((q, index) => { 
-        const inputs = q.querySelectorAll('input[type="radio"]'); 
-        inputs.forEach(input => { 
-            input.addEventListener('change', () => { 
-                answeredQuestions++; // 每當選擇一個答案時增加計數
-                if (index < questions.length - 1) { 
-                    currentQuestion++; 
-                    showQuestion(currentQuestion); 
+    const inputs = q.querySelectorAll('input[type="radio"]'); 
+    inputs.forEach(input => { 
+        input.addEventListener('change', () => { 
+            if (!input.checked) return; // 確保選中的答案
+            answeredQuestions++; // 每當選擇一個答案時增加計數
+            updateProgressBar(); // 更新進度條
+            if (index < questions.length - 1) { 
+                currentQuestion++; 
+                showQuestion(currentQuestion);  
                 }
             }); 
         }); 
