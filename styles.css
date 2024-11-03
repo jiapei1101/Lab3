@@ -125,7 +125,7 @@ button:hover {
 .progress {
     height: 100%;
     background-color: #3E4C79; /* 進度顏色 */
-    width: 0%; /* 初始進度為 0% */
+    width: 0; /* 初始進度為 0% */
     transition: width 0.3s ease; /* 平滑變化效果 */
     border-radius: 10px;
 }
