@@ -129,13 +129,12 @@
         submitBtn.classList.toggle('hidden', index !== questions.length - 1);
         updateProgressBar();
     }
-}
+
 
     function updateProgressBar() {
         const progress = (answeredQuestions / questions.length) * 100; // 計算進度
         progressBar.style.width = progress + '%'; // 更新進度條的寬度
     }
-
 
     showQuestion(currentQuestion); 
         questions.forEach((q, index) => { 
