@@ -118,6 +118,7 @@
     const submitBtn = document.getElementById('submit-btn'); 
     const progressBar = document.querySelector('.progress-bar .progress');
     let currentQuestion = 0; 
+    let answeredQuestions = 0; 
     
 
     function showQuestion(index) { 
@@ -140,10 +141,12 @@
         questions.forEach((q, index) => { 
         const inputs = q.querySelectorAll('input[type="radio"]'); 
         inputs.forEach(input => { 
-            input.addEventListener('change', () => { 
-                if (index < questions.length - 1) { 
-                    currentQuestion++; 
-                    showQuestion(currentQuestion); 
+            input.addEventListener('change', () => {
+            if (!input.checked) return; // 確保只有當選項被選中時才增加計數
+            answeredQuestions++; // 更新已回答問題數
+            if (index < questions.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion); 
                 }
             }); 
         }); 
