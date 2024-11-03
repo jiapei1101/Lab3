@@ -10,7 +10,7 @@ body {
 /* 標頭樣式 */
 header {
     background: linear-gradient(60deg, #F4E7F0, #CFD9F2);
-    color: black;
+    color: #333;
     padding: 20px;
     text-align: center;
 }
@@ -37,8 +37,8 @@ section {
 }
 
 h2 {
-    color: #68c2e3;
-    border-bottom: 2px solid #68c2e3;
+    color: #333;
+    border-bottom: 2px solid #333;
     padding-bottom: 5px;
 }
 
