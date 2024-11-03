@@ -118,7 +118,6 @@ button:hover {
     background-color: #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
-    margin-right: 10px; /* 與百分比文字的間距 */
     
 }
 
@@ -131,11 +130,6 @@ button:hover {
     border-radius: 10px;
 }
 
-/* 百分比文字 */
-.progress-percentage {
-    font-size: 1em;
-    color: #68c2e3; /* 百分比文字顏色 */
-}
 /* 調整主內容，防止被進度條遮擋 */
 main {
     padding-bottom: 40px; /* 給主內容底部增加空間以避免遮擋 */
