@@ -119,7 +119,7 @@ button:hover {
     border-radius: 10px;
     overflow: hidden;
     margin-right: 10px; /* 與百分比文字的間距 */
-    position: relative;
+    
 }
 
 /* 進度 */
@@ -132,7 +132,7 @@ button:hover {
 }
 
 /* 百分比文字 */
-.progress-percent {
+.progress-percentage {
     font-size: 1em;
     color: #68c2e3; /* 百分比文字顏色 */
 }
