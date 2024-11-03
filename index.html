@@ -119,6 +119,7 @@
     const progressBar = document.querySelector('.progress-bar .progress');
     const progressElement = document.querySelector('.progress');
     let currentQuestion = 0; 
+    let answeredQuestions = 0;
     
 
     function showQuestion(index) { 
@@ -130,17 +131,29 @@
         updateProgressBar();
     }
 
+    function updateProgressBar() {
+        const progress = (answeredQuestions / questions.length) * 100; // 計算進度
+        progressBar.style.width = progress + '%'; // 更新進度條的寬度
+    }
+
 
     showQuestion(currentQuestion); 
         
     questions.forEach((q, index) => { 
         const inputs = q.querySelectorAll('input[type="radio"]'); 
-        inputs.forEach(input => { 
-            input.addEventListener('change', () => { 
-                if (index < questions.length - 1) { 
-                    currentQuestion++; 
-                    showQuestion(currentQuestion); 
-                } 
+        inputs.forEach(input => {
+            input.addEventListener('change', () => {
+                if (index < questions.length - 1) {
+                    answeredQuestions++; // 每次回答增加已回答問題數
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                } else {
+                    // 如果是最後一題，直接增加已回答問題數
+                    answeredQuestions++;
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                }
+                updateProgressBar(); // 更新進度條
             }); 
         }); 
     });
