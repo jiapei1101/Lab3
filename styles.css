@@ -10,7 +10,7 @@ body {
 /* 標頭樣式 */
 header {
     background: linear-gradient(60deg, #F4E7F0, #CFD9F2);
-    color: white;
+    color: black;
     padding: 20px;
     text-align: center;
 }
