@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>人際關係心理測驗</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- 加入 jQuery CDN -->
 </head>
 <body>
     <header>
@@ -111,22 +112,20 @@
     </footer>
 
     <script>
-        const questions = document.querySelectorAll('.question');
-        const submitBtn = document.getElementById('submit-btn');
+        
+        $(document).ready(function() {
+        const $questions = $('.question');
+        const $submitBtn = $('#submit-btn');
         let currentQuestion = 0;
-
+        
         function showQuestion(index) {
-            questions.forEach((q, i) => {
-                q.classList.remove('active');
-                if (i === index) {
-                    q.classList.add('active');
-                }
-            });
+            $questions.hide(); // 隱藏所有問題
+            $($questions[index]).fadeIn(); // 使用 fadeIn 顯示當前問題
             // 隱藏提交按鈕，除非是最後一題
-            if (index === questions.length - 1) {
-                submitBtn.classList.remove('hidden');
+            if (index === $questions.length - 1) {
+                $submitBtn.removeClass('hidden');
             } else {
-                submitBtn.classList.add('hidden');
+                $submitBtn.addClass('hidden');
             }
         }
 
@@ -134,17 +133,14 @@
         showQuestion(currentQuestion);
 
         // 為每個問題的選項添加事件監聽器
-        questions.forEach((q, index) => {
-            const inputs = q.querySelectorAll('input[type="radio"]');
-            inputs.forEach(input => {
-                input.addEventListener('change', () => {
-                    if (index < questions.length - 1) {
-                        currentQuestion++;
-                        showQuestion(currentQuestion);
-                    } else {
-                        // 最後一題顯示提交按鈕
-                        submitBtn.click();
-                    }
+            $questions.find('input[type="radio"]').on('change', function() {
+                if (index < $questions.length - 1) {
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                } else {
+                    // 最後一題自動提交
+                    $submitBtn.click();
+                }
                 });
             });
         });
