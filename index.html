@@ -103,8 +103,11 @@
                 <label><input type="radio" name="q10" value="D"> 幾乎不會，我更重視自己的感受</label> 
             </div> 
             <!-- 進度條 -->
-        <div class="progress-bar">
-            <div class="progress"></div>
+        <div class="progress-bar-container">
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <span class="progress-percentage">0%</span>
         </div>
 
         <button type="submit" id="submit-btn" class="hidden">提交測驗</button> 
@@ -118,7 +121,10 @@
     const questions = document.querySelectorAll('.question'); 
     const submitBtn = document.getElementById('submit-btn'); 
     const progressBar = document.querySelector('.progress-bar .progress');
+    const progressElement = document.querySelector('.progress');
+    const progressPercentage = document.querySelector('.progress-percentage');
     let currentQuestion = 0; 
+    let currentProgress = 0;
 
     function showQuestion(index) { 
         questions.forEach((q, i) => { 
@@ -132,6 +138,11 @@
     function updateProgressBar() {
         const progress = ((currentQuestion + 1) / questions.length) * 100;
         progressBar.style.width = progress + '%';
+    }
+    function updateProgress(totalQuestions, answeredQuestions) {
+    currentProgress = (answeredQuestions / totalQuestions) * 100;
+    progressElement.style.width = `${currentProgress}%`;
+    progressPercentage.textContent = `${Math.round(currentProgress)}%`;
     }
 
     showQuestion(currentQuestion); 
