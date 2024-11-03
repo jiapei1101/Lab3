@@ -112,38 +112,38 @@
     </footer>
 
     <script>
-        
         $(document).ready(function() {
-        const $questions = $('.question');
-        const $submitBtn = $('#submit-btn');
-        let currentQuestion = 0;
-        
-        function showQuestion(index) {
-            $questions.hide(); // 隱藏所有問題
-            $($questions[index]).fadeIn(); // 使用 fadeIn 顯示當前問題
-            // 隱藏提交按鈕，除非是最後一題
-            if (index === $questions.length - 1) {
-                $submitBtn.removeClass('hidden');
-            } else {
-                $submitBtn.addClass('hidden');
-            }
+    const $questions = $('.question');
+    const $submitBtn = $('#submit-btn');
+    let currentQuestion = 0;
+
+    function showQuestion(index) {
+        $questions.hide(); // 隱藏所有問題
+        $($questions[index]).fadeIn(); // 使用 fadeIn 顯示當前問題
+        // 隱藏提交按鈕，除非是最後一題
+        if (index === $questions.length - 1) {
+            $submitBtn.removeClass('hidden');
+        } else {
+            $submitBtn.addClass('hidden');
         }
+    }
 
-        // 初始顯示第一題
-        showQuestion(currentQuestion);
+    // 初始顯示第一題
+    showQuestion(currentQuestion);
 
-        // 為每個問題的選項添加事件監聽器
-            $questions.find('input[type="radio"]').on('change', function() {
-                if (index < $questions.length - 1) {
-                    currentQuestion++;
-                    showQuestion(currentQuestion);
-                } else {
-                    // 最後一題自動提交
-                    $submitBtn.click();
-                }
-                });
-            });
-        });
+    // 為每個問題的選項添加事件監聽器
+    $questions.find('input[type="radio"]').on('change', function() {
+        // 當用戶選擇選項時，移動到下一題
+        if (currentQuestion < $questions.length - 1) {
+            currentQuestion++;
+            showQuestion(currentQuestion);
+        } else {
+            // 最後一題自動提交
+            $submitBtn.click();
+        }
+    });
+});
+});
     </script>
 </body>
 </html>
