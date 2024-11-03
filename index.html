@@ -114,47 +114,49 @@
         </form> 
 </main> 
 
-<script> 
-    const questions = document.querySelectorAll('.question'); 
-    const submitBtn = document.getElementById('submit-btn'); 
+<script>
+    const questions = document.querySelectorAll('.question');
+    const submitBtn = document.getElementById('submit-btn');
     const progressBar = document.querySelector('.progress-bar .progress');
-    const progressElement = document.querySelector('.progress');
-    const progressPercentage = document.querySelector('.progress-percentage');
-    let currentQuestion = 0; 
-    let currentProgress = 0;
+    const progressPercentage = document.getElementById('progress-percent'); // 更新選擇器
+    let currentQuestion = 0;
+    let answeredQuestions = 0; // 用於計算已回答的問題數量
 
-    function showQuestion(index) { 
-        questions.forEach((q, i) => { 
-            q.classList.toggle('active', i === index); 
-        }); 
+    function showQuestion(index) {
+        questions.forEach((q, i) => {
+            q.classList.toggle('active', i === index);
+        });
 
         submitBtn.classList.toggle('hidden', index !== questions.length - 1);
         updateProgressBar();
     }
 
     function updateProgressBar() {
-        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        const progress = (answeredQuestions / questions.length) * 100; // 更新進度
         progressBar.style.width = progress + '%';
-    }
-    function updateProgress(totalQuestions, answeredQuestions) {
-    currentProgress = (answeredQuestions / totalQuestions) * 100;
-    progressElement.style.width = `${currentProgress}%`;
-    progressPercentage.textContent = `${Math.round(currentProgress)}%`;
+        progressPercentage.textContent = `${Math.round(progress)}%`; // 更新百分比顯示
     }
 
-    showQuestion(currentQuestion); 
-        
-    questions.forEach((q, index) => { 
-        const inputs = q.querySelectorAll('input[type="radio"]'); 
-        inputs.forEach(input => { 
-            input.addEventListener('change', () => { 
-                if (index < questions.length - 1) { 
-                    currentQuestion++; 
-                    showQuestion(currentQuestion); 
-                } 
-            }); 
-        }); 
+    showQuestion(currentQuestion);
+
+    questions.forEach((q, index) => {
+        const inputs = q.querySelectorAll('input[type="radio"]');
+        inputs.forEach(input => {
+            input.addEventListener('change', () => {
+                if (index < questions.length - 1) {
+                    answeredQuestions++; // 增加已回答問題數
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                } else {
+                    // 如果是最後一題，直接增加已回答問題數
+                    answeredQuestions++;
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                }
+                updateProgressBar(); // 更新進度條
+            });
+        });
     });
-</script> 
+</script>
 </body> 
 </html>
