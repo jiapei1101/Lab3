@@ -126,11 +126,10 @@
             q.classList.toggle('active', i === index); 
         }); 
 
-        // 確保按鈕在顯示所有問題時始終可見
+    // 確保按鈕在顯示所有問題時始終可見
         submitBtn.classList.toggle('hidden', index !== questions.length - 1);
         updateProgressBar();
     }
-
 
     function updateProgressBar() {
         const progress = (answeredQuestions / questions.length) * 100; // 計算進度
@@ -138,15 +137,14 @@
     }
 
     showQuestion(currentQuestion); 
-        questions.forEach((q, index) => { 
+    questions.forEach((q, index) => { 
         const inputs = q.querySelectorAll('input[type="radio"]'); 
         inputs.forEach(input => { 
-            input.addEventListener('change', () => {
-            if (!input.checked) return; // 確保只有當選項被選中時才增加計數
-            answeredQuestions++; // 更新已回答問題數
-            if (index < questions.length - 1) {
-                currentQuestion++;
-                showQuestion(currentQuestion); 
+            input.addEventListener('change', () => { 
+                answeredQuestions++; // 每當選擇一個答案時增加計數
+                if (index < questions.length - 1) { 
+                    currentQuestion++; 
+                    showQuestion(currentQuestion); 
                 }
             }); 
         }); 
