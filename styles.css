@@ -132,7 +132,7 @@ button:hover {
 
 /* 調整主內容，防止被進度條遮擋 */
 main {
-    padding-bottom: 40px; /* 給主內容底部增加空間以避免遮擋 */
+    padding-bottom: 60px; /* 給主內容底部增加空間以避免遮擋 */
 }
 
 
