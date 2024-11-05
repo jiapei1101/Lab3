@@ -55,29 +55,27 @@
         }
 
         // 根據最高分顯示結果
-        const resultText = document.getElementById('result-text');
-        let resultMessage = '';
-        switch(dominant) {
-            case 'A':
-                resultMessage = "你在人際互動中比較主動，善於表達自己的想法，通常能夠迅速引領話題或討論。"
-                     \n "這表現出強烈的外向性，可能對應於MBTI中的‘E’(外向)，並且有時候你的自信與堅持可能會讓人覺得你有些強勢或偏執。"
-                        \n "你可能偏向理性思考且迅速作出決定，這也暗示你可能是‘T’(思維型)的特徵。"
-                            \n "你喜歡擁有掌控感，這與MBTI中的‘J’(判斷型)特質也相符，可能對應於領導型的人格如ENTJ或ESTJ。";
-                break;
-            case 'B':
-                resultMessage = "你在人際互動中尋求平衡，努力找到折衷方案，能夠適應不同的情況。";
-                break;
-            case 'C':
-                resultMessage = "你在人際互動中較為被動，傾向於避免衝突，注重和諧。";
-                break;
-            case 'D':
-                resultMessage = "你在人際互動中較為獨立，不太依賴他人，重視個人空間。";
-                break;
-            default:
-                resultMessage = "你的測驗結果有些複雜，請重新測試。";
-        }
+const resultText = document.getElementById('result-text');
+let resultMessage = '';
 
-        resultText.textContent = resultMessage;
+switch(dominant) {
+    case 'A':
+        resultMessage = "你在人際互動中比較主動，善於表達自己的想法，通常能夠迅速引領話題或討論。這表現出強烈的外向性，可能對應於MBTI中的‘E’(外向)，並且有時候你的自信與堅持可能會讓人覺得你有些強勢或偏執。你可能偏向理性思考且迅速作出決定，這也暗示你可能是‘T’(思維型)的特徵。你喜歡擁有掌控感，這與MBTI中的‘J’(判斷型)特質也相符，可能對應於領導型的人格如ENTJ或ESTJ。";
+        break;
+    case 'B':
+        resultMessage = "你在人際互動中注重平衡，擅長調解衝突並尋找折衷方案，這顯示出你具有高度的適應性與靈活性。這樣的行為可能表現出MBTI中的‘F’(情感型)特徵，因為你能夠關注他人需求並優先考慮人際和諧。此外，你的靈活性和開放性暗示你可能傾向於‘P’(知覺型)，這讓你能夠在多變的情況下保持冷靜並尋求最佳解決方案。你的這些特質或許使你擁有像INFJ、ENFP或ISFP這樣的型格。";
+        break;
+    case 'C':
+        resultMessage = "你在人際互動中較為保守，避免衝突並傾向於維持和諧。這表現出你對安穩與穩定的偏好，這可能意味著你在MBTI中更接近‘I’(內向)的特徵，並且更容易傾向於內省與思考。你在選擇和解決問題時，可能會依賴直覺和情感，這也暗示你可能偏向‘N’(直覺型)和‘F’(情感型)。這樣的性格組合可能讓你接近INFJ或ISFJ，這些人格重視內心的價值觀並尋求深層次的情感聯繫。";
+        break;
+    case 'D':
+        resultMessage = "你在人際互動中較為獨立，重視個人空間，並且較少依賴他人。這顯示出你強烈的自我意識與對自主性的需求，這可能與MBTI中的‘I’(內向)和‘J’(判斷型)特質相符。你傾向於規劃與控制自己的生活，對自己有清晰的目標和方向。你喜歡在相對安靜且不受干擾的環境中運作，這也與INTJ或ISTJ這樣的型格特徵相符，這些人格偏向理性、邏輯，並且擁有高度的自律性。";
+        break;
+}
+
+// 顯示結果，注意此處使用 innerHTML
+resultText.innerHTML = resultMessage;
+
 
         // 重新測驗按鈕
         const restartBtn = document.getElementById('restart-btn');
