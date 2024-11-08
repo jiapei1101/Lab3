@@ -127,11 +127,15 @@
             q.classList.toggle('active', i === index); 
         }); 
 
-    // 確保按鈕在顯示所有問題時始終可見
-        submitBtn.classList.toggle('hidden', index !== questions.length - 1);
-        updateProgressBar();
+    // 檢查是否是最後一題，如果是最後一題，顯示提交按鈕
+    if (index === questions.length - 1) {
+        submitBtn.classList.remove('hidden');  // 顯示提交按鈕
+    } else {
+        submitBtn.classList.add('hidden'); // 隱藏提交按鈕
     }
 
+    updateProgressBar();  // 更新進度條
+}
     function updateProgressBar() {
         const progress = (answeredQuestions / questions.length) * 100; // 計算進度
         progressBar.style.width = progress + '%'; // 更新進度條的寬度
