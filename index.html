@@ -128,7 +128,7 @@
         }); 
 
     // 檢查是否是最後一題，如果是最後一題，顯示提交按鈕
-    if (index >= questions.length) {
+    if (index >= questions.length -1 ) {
         submitBtn.classList.remove('hidden');  // 顯示提交按鈕
     } else {
         submitBtn.classList.add('hidden'); // 隱藏提交按鈕
