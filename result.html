@@ -23,7 +23,7 @@
         // 獲取URL參數
         const urlParams = new URLSearchParams(window.location.search);
         const answers = [];
-        for(let i=1; i<=10; i++) {
+        for(let i = 1; i <= 10; i++) {
             const answer = urlParams.get(`q${i}`);
             if(answer) {
                 answers.push(answer);
@@ -70,7 +70,11 @@
             case 'D':
                 resultMessage = "你在人際互動中較為獨立，不太依賴他人，重視個人空間。";
                 break;
+            default:
+                resultMessage = "無法根據你的答案判斷出明確的結果，請重新測驗。";
+        }
 
+        resultText.textContent = resultMessage;
 
         // 重新測驗按鈕
         const restartBtn = document.getElementById('restart-btn');
@@ -80,3 +84,4 @@
     </script>
 </body>
 </html>
+
